@@ -2,11 +2,11 @@ import * as React from "react"
 import { graphql, Link } from "gatsby"
 import { getImage, getSrc, GatsbyImage } from "gatsby-plugin-image"
 
-const IndexPage = ({ data }) => {
+const AboutPage = ({ data }) => {
   const img = data.allFile.edges[0].node.childImageSharp
   return (
     <>
-      <Link to="/about">Go to about</Link>
+      <Link to="/">Go to home</Link>
       <div>
         <p>Gatsby image</p>
         <GatsbyImage image={getImage(img)} loading="eager" />
@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query ImageIndexQuery {
+  query ImageAboutQuery {
     allFile(filter: {sourceInstanceName: { eq: "images" }}) {
       edges {
         node {
@@ -33,4 +33,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default AboutPage
